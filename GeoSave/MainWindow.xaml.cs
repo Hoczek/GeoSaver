@@ -62,6 +62,11 @@ namespace GeoSave
             string message;
             try
             {
+                if(lastResult == null)
+                {
+                    ExceptionLabel.Content = "First need geolocalization";
+                    return;
+                }
                 _saver.Save(lastResult, out message);
                 ExceptionLabel.Content = "";
             }
